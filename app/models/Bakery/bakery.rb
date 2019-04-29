@@ -13,7 +13,7 @@ class Bakery
     end
 
     def ingredients
-        return Dessert.by_bakery(self).map { |dessert| Ingredient.by_dessert(dessert) }
+        return desserts.map { |dessert| Ingredient.by_dessert(dessert) }
     end
     
     def desserts
