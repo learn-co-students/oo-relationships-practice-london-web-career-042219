@@ -29,6 +29,6 @@ class Bakery
 
 
  def shopping_list
-   ingredients.map{|ingredient| ingredient.name}
+   ingredients.map{|ingredient| ingredient.name}.join(", ")
  end
 end
