@@ -20,11 +20,11 @@ class Movie
     end
 
     def actors  #NICO: seperating out jobs
-        characters.map {|char| char.actor}.uniq
+      characters.map {|char| char.actor}.uniq
     end
 
     def actor_count   #NICO
-    actors.length
+      actors.length
     end
 
     def actor_list

@@ -19,7 +19,6 @@ class Ingredient
     end
 
     def self.find_all_by_name(ingredient) #DONE
-
         all.select{ |ingred| ingred.name.downcase.include?(ingredient)}
         #self not necessary here!
     end

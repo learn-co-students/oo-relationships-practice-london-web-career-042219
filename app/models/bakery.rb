@@ -15,14 +15,16 @@ class Bakery
     Ingredient.all.select {|ingred| ingred.dessert.bakery == self}
   end
 
-  def desserts #DONE return an array of desserts the bakery makes
+  def desserts #DONE return an array of dessert instances
     classes = Dessert.all.select {|dessert| dessert.bakery == self}
-    classes.map {|x| x.name}
   end
 
-  def average_calories  #Ave. calories  
-      cals = ingredients.map {|ingred| ingred.calorie}
-      ave = cals.sum / cals.length 
+  def dessert_calories
+    desserts.map {|dessert| dessert.calories}
+  end
+
+  def average_calories  #Ave. calories       
+      dessert_calories.sum / desserts.length
   end
 
   def shopping_list #return a string of names for ingredients for bakery 
