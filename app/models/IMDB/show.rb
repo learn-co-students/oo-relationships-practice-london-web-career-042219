@@ -28,6 +28,6 @@ class Show
     end
 
     def on_the_big_screen?
-        Movie.all.map { |movie|  movie.title }.include?(self.title)
+        Movie.all.any? { |movie|  movie.title == self.title }
     end
 end

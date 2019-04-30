@@ -12,7 +12,7 @@ class Location
     end
 
     def self.least_clients
-        all.min_by { |location| location.clients.length }
+        all.min_by { |location| location.unique_clients.length }
     end
 
     def appointments
@@ -21,5 +21,9 @@ class Location
 
     def clients
         appointments.map { |appointment| appointment.client }
+    end
+
+    def unique_clients
+        clients.uniq
     end
 end
