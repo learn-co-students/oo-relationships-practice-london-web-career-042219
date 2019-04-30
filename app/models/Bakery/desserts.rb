@@ -13,6 +13,8 @@ class Dessert
   def ingredients
     # return an array of ingredients for this dessert
     Ingredient.all.select{|info| info.dessert == self}
+    ### SOLUTION ###
+    # As Above
   end
 
   def ingredients_name
@@ -22,6 +24,7 @@ class Dessert
   def bakerys
     # return the bakery object for said dessert
     Dessert.all.select{|info| info == self}
+    ### SOLUTION ###
   end
 
   def bakerys_name
@@ -31,6 +34,8 @@ class Dessert
   def calories
     # return a number totalling all the calories for all ingredients in said dessert.
     self.ingredients.map{|info| info.calories}.sum
+    ### SOLUTION ###
+    # as above
   end
 
   def self.all
