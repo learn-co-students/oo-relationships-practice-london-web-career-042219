@@ -12,14 +12,8 @@ class Appearance
         return @@all
     end
 
-    def self.by_character(character)
-        return @@all.select { |appearance| appearance.character == character }
+    def actor
+        @character.actor
     end
-
-    def self.by_picture(picture)
-        return @@all.select { |appearance| appearance.picture == picture }
-    end
-
-    def 
 
 end

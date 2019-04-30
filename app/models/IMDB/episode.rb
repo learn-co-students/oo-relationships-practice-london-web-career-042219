@@ -12,11 +12,16 @@ class Episode
         return @@all
     end
 
-    def self.by_show(show)
-        return @@all.select { |episode| episode.show == show }
+    def appearances
+        Appearance.all.select { |appearance| appearance.picture == self}
     end
 
-    def self.characters_by_episode
-        
+    def characters
+        appearances.map { |appearance| appearance.character }
     end
+
+    def actors
+        characters.map { |character| character.actor }.uniq
+    end
+
 end

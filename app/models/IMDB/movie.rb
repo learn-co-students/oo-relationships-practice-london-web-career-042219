@@ -7,19 +7,28 @@ class Movie
         @@all << self
     end
 
+    def actors
+        Actor.all.select {|actor| actor.movies.include? self}
+    end
+
     def self.all
         return @@all
     end
 
-    def self.most_actors
+    def appearances
+        Appearance.all.select{ |appearance| appearance.picture == self }
     end
 
-    def self.movie_titles
-        return all.map { |movie| movie.title }
+    def characters
+        appearances.map { |appearance| appearance.character }
+    end
+
+    def actors
+        characters.map { |character| character.actor }.uniq
     end
 
     def self.most_actors
-        all.max_by{ |movie| Appearance.by_picture(movie).map { |appearance| appearance.character }.map { |character| character.actor }.uniq.length }
+        all.max_by { |movie| movie.actors.length }
     end
 
 end
