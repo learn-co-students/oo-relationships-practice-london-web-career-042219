@@ -11,8 +11,12 @@ class Trainer
         return @@all
     end
 
+    def clients
+        Client.all.select{ |client| client.trainer == self}
+    end
+
     def self.most_clients
-        all.max_by { |trainer| Client.by_trainer(trainer).length }
+        all.max_by { |trainer| trainer.clients.length }
     end
 
 end

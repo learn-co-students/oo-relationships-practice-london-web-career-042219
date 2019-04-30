@@ -12,8 +12,4 @@ class Appointment
         return @@all
     end
 
-    def self.by_location(location)
-        all.select { |instance| instance.location == location}
-    end
-
 end

@@ -13,15 +13,11 @@ class Client
         return @@all
     end
 
-    def self.by_trainer(trainer)
-        return all.select { |client| client.trainer == trainer }
+    def appointments
+        Appointment.all.select{ |appointment| appointment.user == self }
     end
 
     def assign_trainer(trainer)
         @trainer = trainer
-    end
-
-    def make_appointment(location)
-        ClientLocation.new(self, location)
     end
 end

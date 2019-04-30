@@ -13,24 +13,24 @@ class Project
         return @@all
     end
 
-    def goal_met?
-        return Pledge.by_project(self).sum { |pledge| pledge.amount } >= self.goal ? true : false
+    def pledges
+        Pledge.all.select { |pledge| pledge.project == self }
+    end
+    
+    def pledged_amount
+        pledges.sum { |pledge| pledge.amount}
     end
 
     def self.no_pledges
-        all.select { |project| (Pledge.by_project(project).length) == 0}
+        all.select { |project| project.pledges.length == 0 }
     end
-    
+
     def self.above_goal
-        return all.select{ |project| project.goal_met? }
+        all.select { |project|  project.pledged_amount >= project.goal }
     end
 
     def self.most_backers
-        all.max_by { |project| Pledge.by_project(project).map{ |pledge| pledge.user }.uniq.length }
+        all.max_by { |project| project.pledges.uniq { |pledge| pledge.user }.length }
     end
     
-    def self.by_creator(creator)
-        all.select { |project| project.creator == creator }
-    end
-
 end

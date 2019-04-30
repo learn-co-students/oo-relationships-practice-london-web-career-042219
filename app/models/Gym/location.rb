@@ -12,6 +12,14 @@ class Location
     end
 
     def self.least_clients
-        all.min_by { |location| Appointment.by_location(location).length }
+        all.min_by { |location| location.clients.length }
+    end
+
+    def appointments
+        Appointment.all.select{ |appointment| appointment.location == self }
+    end
+
+    def clients
+        appointments.map { |appointment| appointment.client }
     end
 end
