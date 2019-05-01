@@ -62,6 +62,41 @@ sps_cart = ShowAppearance.new(south_park, cartman)
 sps_ken = ShowAppearance.new(south_park, kenny)
 got_eml = ShowAppearance.new(got, emilia)
 
+########################################
+#AirBNB test data...
+
+adna = Guest.new("Adna")
+pat = Guest.new("Pat")
+amari = Guest.new("Amari")
+amari2 = Guest.new("Amari")
+
+l1 = Listing.new("The Tower", "Paris")
+l2 = Listing.new("Queens House", "London")
+l3 = Listing.new("Country House", "Aberdeen")
+
+t1 = Trip.new(l1,pat)
+t2 = Trip.new(l1,adna)
+t3 = Trip.new(l2,amari)
+t4 = Trip.new(l3,amari)
+t5 = Trip.new(l1,adna)
+##############################
+#Lyft/Uber
+
+p_dave = Passenger.new("Dave")
+p_amari = Passenger.new("Amari")
+p_adna = Passenger.new("Adna")
+
+d_ross = Driver.new("Ross")
+d_sam = Driver.new("Sam")
+d_nico = Driver.new("Nico")
+
+downtown = Ride.new("Downtown",d_ross,p_adna, 200)
+uptown = Ride.new("Uptown",d_sam,p_amari, 3.4)
+library = Ride.new("Library", d_nico,p_dave, 7.6)
+club = Ride.new("The Club", d_nico,p_adna, 6.6)
+
+
+
 
 Pry.start
 
