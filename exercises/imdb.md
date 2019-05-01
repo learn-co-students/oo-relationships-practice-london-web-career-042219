@@ -1,4 +1,4 @@
-# Level: Medium
+§1# Level: Medium
 
 ## Deliverables
 It is 1995 and you are building out IMDB. Take some time to think about the relationships you need to build the site.
@@ -21,7 +21,8 @@ Write out the relationships using has_many, belongs_to and has_many_through. Wri
 
 #### Show
 - #on_the_big_screen
-  - should return TV shows that share the same name as a movie
+- should return true for TV shows that share the same name as a movie
+
 
 #### Character
 - #most_appearances
